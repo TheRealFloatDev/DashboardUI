@@ -1,3 +1,25 @@
+<?php
+session_start();
+$pdo = new PDO('mysql:host=localhost:3306;dbname=admin_login', 'login', '3z96&oVk');
+
+if(isset($_GET['login'])) {
+    $email = $_POST['email'];
+    $passwort = $_POST['passwort'];
+
+    $statement = $pdo->prepare("SELECT * FROM users WHERE email = :email");
+    $result = $statement->execute(array('email' => $email));
+    $user = $statement->fetch();
+
+    //Überprüfung des Passworts
+    if ($user !== false && password_verify($passwort, $user['passwort'])) {
+        $_SESSION['userid'] = $user['id'];
+header("Location: index.php");
+    } else {
+        $errorMessage = "E-Mail oder Passwort war ungültig<br>";
+    }
+
+}
+?>
 <!DOCTYPE html>
 <html>
 
@@ -21,7 +43,7 @@
                             <div class="col-lg-6">
                                 <div class="p-5">
                                     <form class="user" action="?login=1" method="post">
-                                        <div class="form-group"><input class="form-control form-control-user" type="email" id="emailInput" placeholder="Password" name="passwort"></div>
+                                        <div class="form-group"><input class="form-control form-control-user" type="text" id="emailInput" placeholder="Password" name="email"></div>
                                         <div class="form-group"><input class="form-control form-control-user" type="password" id="passwordinput" placeholder="Password" name="passwort"></div><button class="btn btn-primary btn-block text-white btn-user" type="submit">Login</button></form>
                                 </div>
                             </div>
@@ -30,28 +52,7 @@
                 </div>
             </div>
         </div>
-    </div><?php
-session_start();
-$pdo = new PDO('mysql:host=localhost;dbname=admin_login', 'login', '3z96&oVk');
-
-if(isset($_GET['login'])) {
-    $email = $_POST['email'];
-    $passwort = $_POST['passwort'];
-
-    $statement = $pdo->prepare("SELECT * FROM users WHERE email = :email");
-    $result = $statement->execute(array('email' => $email));
-    $user = $statement->fetch();
-
-    //Überprüfung des Passworts
-    if ($user !== false && password_verify($passwort, $user['passwort'])) {
-        $_SESSION['userid'] = $user['id'];
-        header("Location: index.php");
-    } else {
-        $errorMessage = "E-Mail oder Passwort war ungültig<br>";
-    }
-
-}
-?>
+    </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.min.js"></script>
