@@ -21,7 +21,6 @@ header("Location: login.php");
 //Abfrage der Nutzer ID vom Login
 $userid = $_SESSION['userid'];
 
-echo "Hallo User: ".$userid;
 ?>
     <div id="wrapper">
         <nav class="navbar navbar-dark align-items-start sidebar sidebar-dark accordion bg-gradient-primary p-0" style="background-image: url(&quot;none&quot;);background-color: rgb(44,49,52);">
