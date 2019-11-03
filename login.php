@@ -30,18 +30,18 @@
                 </div>
             </div>
         </div>
-    </div><?php 
+    </div><?php
 session_start();
-$pdo = new PDO('mysql:host=localhost;dbname=test', 'root', '');
- 
+$pdo = new PDO('mysql:host=localhost;dbname=admin_login', 'login', '3z96&oVk');
+
 if(isset($_GET['login'])) {
     $email = $_POST['email'];
     $passwort = $_POST['passwort'];
-    
+
     $statement = $pdo->prepare("SELECT * FROM users WHERE email = :email");
     $result = $statement->execute(array('email' => $email));
     $user = $statement->fetch();
-        
+
     //Überprüfung des Passworts
     if ($user !== false && password_verify($passwort, $user['passwort'])) {
         $_SESSION['userid'] = $user['id'];
@@ -49,7 +49,7 @@ if(isset($_GET['login'])) {
     } else {
         $errorMessage = "E-Mail oder Passwort war ungültig<br>";
     }
-    
+
 }
 ?>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
