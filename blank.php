@@ -34,6 +34,7 @@ $userid = $_SESSION['userid'];
                     <li class="nav-item" role="presentation"><a class="nav-link" href="index.php"><i class="fas fa-tachometer-alt"></i><span>Dashboard</span></a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link" href="blank.php"><i class="far fa-newspaper"></i><span>Blank</span></a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link" href="404.php"><i class="far fa-snowflake"></i><span>404</span></a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="logout.php"><i class="far fa-user-slash"></i><span>Logout</span></a></li>
                 </ul>
                 <div class="text-center d-none d-md-inline"><button class="btn rounded-circle border-0" id="sidebarToggle" type="button"></button></div>
             </div>
