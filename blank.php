@@ -32,7 +32,7 @@ echo "Hallo User: ".$userid;
                 </a>
                 <hr class="sidebar-divider my-0">
                 <ul class="nav navbar-nav text-light" id="accordionSidebar">
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="index.html"><i class="fas fa-tachometer-alt"></i><span>Dashboard</span></a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="index.php"><i class="fas fa-tachometer-alt"></i><span>Dashboard</span></a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link" href="blank.php"><i class="far fa-newspaper"></i><span>Blank</span></a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link" href="404.php"><i class="far fa-snowflake"></i><span>404</span></a></li>
                 </ul>
