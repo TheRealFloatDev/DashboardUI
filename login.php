@@ -1,6 +1,6 @@
 <?php
 session_start();
-$pdo = new PDO('mysql:host=localhost:3306;dbname=admin_login', 'login', '3z96&oVk');
+$pdo = new PDO('mysql:host=localhost:3306;dbname=DATENBANKNAME', 'NUTZERNAME', 'PASSWORT');
 
 if(isset($_GET['login'])) {
     $email = $_POST['email'];
